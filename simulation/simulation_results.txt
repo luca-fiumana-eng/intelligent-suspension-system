@@ -1,0 +1,64 @@
+T1 constant speed: estimate accuracy and acceleration noise (new vs legacy windowed counting)
+   v_true  v_est(mean)  err%   acc_new[min,max]   acc_legacy[min,max]
+     1.0      1.000    -0.00   [+0.00,+0.00]      [-3.27,+3.27]
+     3.0      3.000    -0.00   [+0.00,+0.00]      [-3.27,+3.27]
+     5.0      5.000    +0.01   [-0.03,+0.03]      [-3.27,+3.27]
+     7.0      7.000    +0.00   [-0.04,+0.04]      [-3.27,+3.27]
+    20.0     20.000    -0.00   [+0.00,+0.00]      [+0.00,+0.00]
+    50.0     50.013    +0.03   [-0.74,+0.76]      [-3.27,+3.27]
+   [check] times both H-bridge outputs were high: 0
+
+T2 rider toggles the HTS at standstill (CLOSED -> OPEN -> CLOSED)
+   t= 0.000 s  ->IDLE
+   t= 1.030 s  ->MOVING
+   t= 2.502 s  ->IDLE
+   t= 5.030 s  ->MOVING
+   t= 6.530 s  ->IDLE
+   final cam position: CLOSED, state=IDLE, both-outputs-high events=0
+   [check] times both H-bridge outputs were high: 0
+
+T3 HTS CLOSED, vehicle accelerates 0 -> 10 km/h at 0.77 m/s2: automatic release at 7 km/h
+   t= 0.000 s  ->IDLE
+   t= 3.600 s  ->RELEASING
+   t= 5.072 s  ->IDLE
+   release started at t=3.600 s with measured speed 7.06 km/h; final: OPEN, state=IDLE
+   button press at 10 km/h ignored: yes
+   [check] times both H-bridge outputs were high: 0
+
+T4 acceleration limit at low speed (HTS CLOSED)
+   a=1.5 m/s2 (2.0 -> 6.5 km/h): no release
+   a=2.5 m/s2 (2.0 -> 6.5 km/h): no release
+   a=3.5 m/s2 (2.0 -> 6.5 km/h): RELEASE at t=1.300 s
+   a=4.5 m/s2 (2.0 -> 6.5 km/h): RELEASE at t=1.200 s
+   [check] times both H-bridge outputs were high: 0
+
+T5 mechanism jammed: rider command, motor cannot move
+   t= 0.000 s  ->IDLE
+   t= 1.030 s  ->MOVING
+   t= 6.031 s  ->FAULT
+   FAULT after 5.031 s from the command; motor outputs A=0 B=0; alarm tone calls after fault: 13
+   [check] times both H-bridge outputs were high: 0
+
+T6 both limit switches pressed (wiring/switch failure) at t=2 s
+   t= 0.000 s  ->IDLE
+   t= 2.025 s  ->FAULT
+   motor outputs A=0 B=0
+   [check] times both H-bridge outputs were high: 0
+
+T7 power-up with the mechanism stopped mid-travel (90 deg)
+   t= 0.000 s  ->MOVING
+   t= 0.721 s  ->IDLE
+   final cam position: OPEN, state=IDLE
+   [check] times both H-bridge outputs were high: 0
+
+T8 button held down for 10 s: one movement only
+   t= 0.000 s  ->IDLE
+   t= 1.030 s  ->MOVING
+   t= 2.502 s  ->IDLE
+   final cam position: OPEN
+   [check] times both H-bridge outputs were high: 0
+
+T9 constant 5 km/h with a one-sample interference spike every 0.5 s
+   speed range [4.99, 6.24] km/h (true 5.00), acc range [-1.73, +1.73] m/s2, spurious release: no
+   [check] times both H-bridge outputs were high: 0
+
