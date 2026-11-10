@@ -22,7 +22,7 @@ I conceived, designed, prototyped and patented an electronic actuation and contr
 
 The rider can command the tilting mechanism between **OPEN** and **CLOSED** from a handlebar switch. The controller permits locking only under defined low-speed / low-acceleration conditions and automatically commands the mechanism back to **OPEN** when either safety threshold is reached.
 
-> **My role:** end-to-end technical ownership — from concept and system interfaces to mechanical/electrical integration, firmware, prototype build, debugging and validation.
+> **My role:** end-to-end technical ownership, from concept and system interfaces to mechanical/electrical integration, firmware, prototype build, debugging and validation.
 
 ## Visual walkthrough
 
@@ -53,8 +53,7 @@ The controller is based on an **Arduino Mega 2560**. A dedicated electrical arch
 The control electronics were assembled in serviceable units. The HMI includes a 16×2 LCD and buzzer; signal conditioning and multiplexing support the sensor and switch interfaces.
 
 <p align="center">
-  <img src="assets/controller_electronics_prototype.jpg" alt="Controller and electronics prototype" width="48%">
-  <img src="assets/schematic_v2.svg" alt="Electrical wiring schematic" width="48%">
+  <img src="assets/controller_electronics_prototype.jpg" alt="Controller and electronics prototype" width="90%">
 </p>
 
 ### 4. Wiring harness: design to vehicle installation
@@ -174,24 +173,3 @@ intelligent-suspension-system/
     └── wiring_harness_on_board.jpg
 ```
 
-## Scope, status and limitations
-
-This repository documents the **electronic tilt-locking and interlock subsystem**, not every function of the wider active-suspension concept. The broader system-level concept includes additional sensing and vehicle-control functions; the firmware presented here implements the wheel-speed / derived-acceleration interlock and actuator-position logic.
-
-The dossier (v1, November 2026) records two prototypes built and road-testing activity at QJ Motor in China. Firmware v2.0 has been verified in simulation. The dossier identifies further real-hardware verification items, including sensor signal calibration, limit-switch fault tests, actuator stall detection, watchdog behaviour and definition of the mechanical fail-safe position.
-
-This is an engineering portfolio case study, **not a claim of safety certification or production homologation**.
-
-## Technical stack
-
-`Arduino Mega 2560` · `Embedded C++` · `DC motor / H-bridge` · `Hall-effect sensing` · `Signal conditioning` · `Automotive wiring harness` · `Finite-state machine` · `Fault handling` · `Telemetry` · `Hardware integration` · `Bench testing` · `Vehicle validation`
-
----
-
-<div align="center">
-
-**Luca Fiumana** · Mechanical Engineering · Mechatronics · R&D
-
-*Concept → Design → Prototype → Firmware → Integration → Verification*
-
-</div>
