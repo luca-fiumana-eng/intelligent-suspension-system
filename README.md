@@ -156,19 +156,4 @@ Firmware v2.0 was compiled unchanged on a PC and exercised against a model of th
 
 **Serviceability.** Keyed connectors, labelled wires and modular control units support debugging, removal and maintenance.
 
-## Repository structure
-
-```text
-intelligent-suspension-system/
-├── README.md
-└── assets/
-    ├── project_banner_tilt_lock.jpg
-    ├── handlebar_activation_concept.png
-    ├── controller_electronics_prototype.jpg
-    ├── schematic_v2.svg
-    ├── electronic_motor_ecu_switch.png
-    ├── firmware_state_machine.png
-    ├── vehicle_prototype_integration.jpg
-    └── wiring_harness_on_board.jpg
-```
 
