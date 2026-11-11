@@ -143,7 +143,6 @@ Firmware v2.0 was compiled unchanged on a PC and exercised against a model of th
 | Button held for 10 s | Only one movement was commanded |
 | H-bridge direction safety | No simulated event with both motor inputs HIGH |
 
-The complete simulation output is available in [`simulation/simulation_results.txt`](simulation/simulation_results.txt).
 
 ## Engineering decisions
 
